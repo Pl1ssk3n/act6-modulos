@@ -3,6 +3,8 @@
 
 void IniciarTipos(int tipos[]);
 
+void IniciarTipos2(int tipos2[]);
+
 void MostrarTipos(int tipos[]);
 
 void MostrarTipos2(int tipos2[]);

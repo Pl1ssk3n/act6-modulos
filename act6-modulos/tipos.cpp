@@ -6,10 +6,22 @@
 void IniciarTipos(int tipos[])
 {
 	int indice = 5;
-	int randoom;
+	//int randoom;
 	while(indice < 10)
 	{
 		tipos[indice] = rand()%7 + 1;
+		indice += 1;
+	}
+	indice = 0;
+}
+
+void IniciarTipos2(int tipos2[])
+{
+	int indice = 5;
+	//int randoom;
+	while(indice < 10)
+	{
+		tipos2[indice] = rand()%7 + 1;
 		indice += 1;
 	}
 	indice = 0;

@@ -225,3 +225,21 @@ void intercambiarvidas(float vidacartas[], int posicion1seleccionada, int posici
 	printf("posicion 2 nueva %.2f\n", b);
 
 }
+
+/*void intercambiarvidas2(float vidacartas2[], int posicion1seleccionada, int posicion2seleccionada)
+{
+	float a;
+	float b;
+	int t;
+	t = 0;
+	a = vidacartas2[posicion1seleccionada];
+	b = vidacartas2[posicion2seleccionada];
+	t = a;
+	a = b;
+	b = t;
+	vidacartas[posicion2seleccionada] = b;
+	vidacartas[posicion1seleccionada] = a;
+	printf("posicion 1 nueva %.2f\n", a);
+	printf("posicion 2 nueva %.2f\n", b);
+
+}*/

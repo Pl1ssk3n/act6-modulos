@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-int opcion;
+int opcionmenu;
 
 float vidacartas[10]={30, 67, 18, 90, 30, 12, 16, 83, 62, 15};
 
@@ -54,90 +54,189 @@ int randoom;
 
 int turno;
 
+int ataque;
+
 void main()
 {	
 	srand(time(NULL));
 	calculavidapromedio(vidacartas);
 	turno = numsorteo();
-	opcion = -1;
+	opcionmenu = -1;
 	IniciarTipos(tipos);
-	while(opcion != 0)
+	IniciarTipos2(tipos2);
+	while(opcionmenu != 0)
 	{
-		printf("************************************************\n");
+		printf("************************************************************\n");
 		printf("cartas jugador 1:\n");
 		Mostrarvidas(vidacartas);
 		MostrarTipos(tipos);
-		printf("\n************************************************\n");
+		printf("\n************************************************************\n");
 		printf("cartas jugador 2:\n");
 		Mostrarvidas2(vidacartas2);
 		MostrarTipos2(tipos2);
-		printf("\n************************************************\n");
+		printf("\n************************************************************\n");
 		printf("sorteo de turno\n");
 		printf("0 = Empieza jugador 1\n");
 		printf("1 = Empieza jugador 2\n");
 		printf("Empieza = %d\n", turno);
-		printf("************************************************\n");
-		printf("01.-IntercambiarPosiciones......................\n");
-		printf("13.-IntercambiarTipos...........................\n");
-		printf("02.-CalcularVidaMaxima..........................\n");
-		printf("03.-CalcularVidaMinima..........................\n");
-		printf("04.-CalcularVidaPromedio........................\n");
-		printf("05.-DanyarCartasPorDebajoDe.....................\n");
-		printf("06.-DanyarCartasPorEncimaDe.....................\n");
+		printf("************************************************************\n");
+		/*printf("13.-IntercambiarTipos...........................\n");
+		//printf("02.-CalcularVidaMaxima..........................\n");
+		//printf("03.-CalcularVidaMinima..........................\n");
+		//printf("04.-CalcularVidaPromedio........................\n");
+		//printf("05.-DanyarCartasPorDebajoDe.....................\n");
+		//printf("06.-DanyarCartasPorEncimaDe.....................\n");
 		printf("07.-DanyarCartasIgualesA........................\n");
 		printf("08.-ContarCartasPorDebajoDe.....................\n");
 		printf("09.-ContarCartasPorEncimaDe.....................\n");
 		printf("10.-ContarCartasIgualesA........................\n");
 		printf("11.-DanyarCartasCercanas........................\n");
-		printf("12.-BuscarTrioMaximo............................\n");
-		printf("0.-Salir........................................\n");
-		printf("************************************************\n");
-		scanf("%d", &opcion);
+		printf("12.-BuscarTrioMaximo............................\n");*/
+		printf("1.-IntercambiarTipos y IntercambiarVidas....................\n");
+		printf("2.-atacar...................................................\n");
+		printf("0.-Salir....................................................\n");
+		printf("************************************************************\n");
+		scanf("%d", &opcionmenu);
 
-		if(opcion == 1)
+		if(opcionmenu == 1)
 		{
-			printf("intercambiar posiciones \nposicion 1 del 0 al 9?\n");
-			scanf("%d", &posicion1seleccionada);
-			printf("posicion 2 del 0 a 9?\n");
-			scanf("%d", &posicion2seleccionada);
-			printf("posicion 1 original %.2f\n", vidacartas[posicion1seleccionada]);
-			printf("posicion 2 original %.2f\n", vidacartas[posicion2seleccionada]);
-			//t = 0;
-			//a = vidacartas[posicion1seleccionada];
-			//b = vidacartas[posicion2seleccionada];
-			//t = a;
-			//a = b;
-			//b = t;
-			//vidacartas[posicion2seleccionada] = b;
-			//vidacartas[posicion1seleccionada] = a;
-			intercambiarvidas(vidacartas, posicion1seleccionada, posicion2seleccionada);
-			//printf("posicion 1 nueva %.2f\n", a);
-			//printf("posicion 2 nueva %.2f\n", b);
+			switch(turno)
+			{
+				case 0:
+				printf("intercambiar posiciones de las vidas \nposicion 1 del 0 al 9?\n");
+				scanf("%d", &posicion1seleccionada);
+				printf("posicion 2 del 0 a 9?\n");
+				scanf("%d", &posicion2seleccionada);
+				printf("posicion 1 original %.2f\n", vidacartas[posicion1seleccionada]);
+				printf("posicion 2 original %.2f\n", vidacartas[posicion2seleccionada]);
+				//t = 0;
+				//a = vidacartas[posicion1seleccionada];
+				//b = vidacartas[posicion2seleccionada];
+				//t = a;
+				//a = b;
+				//b = t;
+				//vidacartas[posicion2seleccionada] = b;
+				//vidacartas[posicion1seleccionada] = a;
+				intercambiarvidas(vidacartas, posicion1seleccionada, posicion2seleccionada);
+				//printf("posicion 1 nueva %.2f\n", a);
+				//printf("posicion 2 nueva %.2f\n", b);
+				printf("intercambiar posiciones de los tipos de cartas \nposicion 1 del 0 al 9?\n");
+				scanf("%d", &posicion1seleccionada);
+				printf("posicion 2 del 0 a 9?\n");
+				scanf("%d", &posicion2seleccionada);
+				printf("posicion 1 original %d\n", tipos[posicion1seleccionada]);
+				printf("posicion 2 original %d\n", tipos[posicion2seleccionada]);
+				IntercambiarTipos(tipos, posicion1seleccionada, posicion2seleccionada);
+				break;
+				
+				case 1:
+				printf("intercambiar posiciones de las vidas \nposicion 1 del 0 al 9?\n");
+				scanf("%d", &posicion1seleccionada);
+				printf("posicion 2 del 0 a 9?\n");
+				scanf("%d", &posicion2seleccionada);
+				printf("posicion 1 original %.2f\n", vidacartas2[posicion1seleccionada]);
+				printf("posicion 2 original %.2f\n", vidacartas2[posicion2seleccionada]);
+				//t = 0;
+				//a = vidacartas[posicion1seleccionada];
+				//b = vidacartas[posicion2seleccionada];
+				//t = a;
+				//a = b;
+				//b = t;
+				//vidacartas[posicion2seleccionada] = b;
+				//vidacartas[posicion1seleccionada] = a;
+				intercambiarvidas(vidacartas2, posicion1seleccionada, posicion2seleccionada);
+				//printf("posicion 1 nueva %.2f\n", a);
+				//printf("posicion 2 nueva %.2f\n", b);
+				printf("intercambiar posiciones de los tipos de cartas \nposicion 1 del 0 al 9?\n");
+				scanf("%d", &posicion1seleccionada);
+				printf("posicion 2 del 0 a 9?\n");
+				scanf("%d", &posicion2seleccionada);
+				printf("posicion 1 original %d\n", tipos2[posicion1seleccionada]);
+				printf("posicion 2 original %d\n", tipos2[posicion2seleccionada]);
+				IntercambiarTipos(tipos2, posicion1seleccionada, posicion2seleccionada);
+				break;
+				
+			}
 		}
 		
-		//Prueba de intercambio tipos
-		else if(opcion == 13)
-		{
-			printf("intercambiar posiciones \nposicion 1 del 0 al 9?\n");
-			scanf("%d", &posicion1seleccionada);
-			printf("posicion 2 del 0 a 9?\n");
-			scanf("%d", &posicion2seleccionada);
-			printf("posicion 1 original %d\n", tipos[posicion1seleccionada]);
-			printf("posicion 2 original %d\n", tipos[posicion2seleccionada]);
-			IntercambiarTipos(tipos, posicion1seleccionada, posicion2seleccionada);
-			
-		}
-
-		else if(opcion == 2)
+		else if(opcionmenu == 2)
 		{			
 
-			vidamaxima = calculavidamaxima(vidacartas);
+			//vidamaxima = calculavidamaxima(vidacartas);
 			
-			printf("tu vida maxima es %.2f \n", vidamaxima);
-			indice = 0;
+			//printf("tu vida maxima es %.2f \n", vidamaxima);
+			//indice = 0;
+			//printf("ataca\n");
+			printf("Que carta quieres usar?\n");
+			printf("0.-SOLDIER.............................\n");
+			printf("1.-KINGSLAYER..........................\n");
+			printf("2.-SCAVENGER...........................\n");
+			printf("3.-PREDATOR............................\n");
+			printf("4.-DARWIN..............................\n");
+			printf("5.-PLAGUE..............................\n");
+			printf("6.-DOOM................................\n");
+			printf("7.-WILDFIRE............................\n");
+			scanf("%d", &ataque);
+			switch(ataque)
+			{
+				case 0://pendiente
+				
+					if(turno == 0)
+					{
+						if(tipo[indice] == 0) //|| 1 || 2 || 3 || 4//
+						{
+							
+						}
+					}
+					else if(turno == 1)
+					{
+					
+					}
+					printf("ataca0\n");
+					break;
+				
+				case 1:
+				printf("ataca1\n");
+				break;
+				
+				case 2:
+				printf("ataca2\n");
+				break;
+				
+				case 3:
+				printf("ataca3\n");
+				break;
+				
+				case 4:
+				printf("ataca4\n");
+				break;
+				
+				case 5:
+				printf("ataca5\n");
+				break;
+				
+				case 6:
+				printf("ataca6\n");
+				break;
+				
+				case 7:
+				printf("ataca7\n");
+				break;
+			}
+		}
+		
+		switch (turno)
+		{
+			case 0:
+			turno += 1;
+			break;
+			
+			case 1:
+			turno -=1;
+			break;
 		}
 
-		else if(opcion == 3)
+		/*else if(opcion == 3)
 		{
 			vidaminima = calculavidaminima(vidacartas);
 			
@@ -248,7 +347,7 @@ void main()
 			numeroindicetrio = buscartriomaximo(vidacartas);
 
 			printf("el indice de la primera carta que muestar el trio maximo contiguo, es: %d\n", numeroindicetrio);
-		}	
+		}*/	
 	}
 }
 
