@@ -179,48 +179,136 @@ void main()
 			scanf("%d", &ataque);
 			switch(ataque)
 			{
-				case 0://pendiente
-				
-					if(turno == 0)
+				case 0:
+					int soldier;
+					printf("A que soldier usaras para atacar?-> \n");
+					scanf("%d", &soldier);
+					int damage;
+					damage = rand() % 5 + 1;
+					printf("%d\n", damage);//prueba dmg
+					if (turno == 0)
 					{
-						if(tipo[indice] == 0) //|| 1 || 2 || 3 || 4//
+						if (vidacartas[soldier] != 0)
 						{
-							
+							vidacartas2[soldier] -= damage;
+						}
+						else
+						{
+							printf("Tu soldier esta muerto y no puede atacar\n");
 						}
 					}
-					else if(turno == 1)
+					else
 					{
-					
+						if (vidacartas2[soldier] != 0)
+						{
+							vidacartas[soldier] -= damage;
+						}
+						else
+						{
+							printf("Tu soldier esta muerto y no puede atacar\n");
+						}
 					}
-					printf("ataca0\n");
-					break;
+				break;
+
 				
 				case 1:
-				printf("ataca1\n");
+					//if (turno == 0)
+					//vidacartas2[soldier] -= damage;
+					//else
+					//vidacartas2[soldier] -= damage;
+					//break;
+					//printf("ataca1\n");
+					//calcular vida maxima y danarlas si varias tienen la misma vida calculavidamaxima y danyarigualesa
+					rand() %11 + 20;
+					if (turno == 0)
+					{
+						
+					}
+					else
+					{
+						
+					}
 				break;
 				
 				case 2:
-				printf("ataca2\n");
+					//calcular vida maxima y danarlas si varias tienen la misma vida calculavidaminima y danyarigualesa
+					rand() %11 + 20;
+					if (turno == 0)
+					{
+						
+					}
+					else
+					{
+						
+					}
+					//printf("ataca2\n");
 				break;
 				
 				case 3:
-				printf("ataca3\n");
+					// calculavidapromedio y danyarporencimade
+					rand()%6 + 5;
+					if (turno == 0)
+					{
+						
+					}
+					else
+					{
+						
+					}
+				//printf("ataca3\n");
 				break;
 				
 				case 4:
-				printf("ataca4\n");
+					//calculavidapromedio y danyarpordebajode
+					rand()%6 + 5;
+					if (turno == 0)
+					{
+						
+					}
+					else
+					{
+						
+					}
+				//printf("ataca4\n");
 				break;
 				
 				case 5:
-				printf("ataca5\n");
+					rand()%6 + 5;
+					if (turno == 0)
+					{
+						
+					}
+					else
+					{
+						
+					}
+				//printf("ataca5\n");
 				break;
 				
 				case 6:
-				printf("ataca6\n");
+					rand()%11 + 10;
+					if (turno == 0)
+					{
+						
+					}
+					else
+					{
+						
+					}
+				//printf("ataca6\n");
 				break;
 				
 				case 7:
-				printf("ataca7\n");
+					rand()%6 + 5;
+					if (turno == 0)
+					{
+						
+					}
+					else
+					{
+						
+					}
+				//printf("ataca7\n");
 				break;
 			}
 		}
