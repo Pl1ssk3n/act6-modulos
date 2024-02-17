@@ -1,27 +1,15 @@
 #include <stdio.h>
-#include "tipos.hpp"
+#include "tipos.h"
 #include <stdlib.h>
 #include <time.h>
 
 void IniciarTipos(int tipos[])
 {
 	int indice = 5;
-	//int randoom;
-	while(indice < 10)
+	int randoom;
+	while (indice < 10)
 	{
-		tipos[indice] = rand()%7 + 1;
-		indice += 1;
-	}
-	indice = 0;
-}
-
-void IniciarTipos2(int tipos2[])
-{
-	int indice = 5;
-	//int randoom;
-	while(indice < 10)
-	{
-		tipos2[indice] = rand()%7 + 1;
+		tipos[indice] = rand() % 7 + 1;
 		indice += 1;
 	}
 	indice = 0;
@@ -30,8 +18,8 @@ void IniciarTipos2(int tipos2[])
 void MostrarTipos(int tipos[])
 {
 	int indice = 0;
-	printf("\n");	
-	while(indice < 10)
+	printf("\n");
+	while (indice < 10)
 	{
 		printf("  %d   ", tipos[indice]);
 		indice += 1;
@@ -41,8 +29,8 @@ void MostrarTipos(int tipos[])
 void MostrarTipos2(int tipos2[])
 {
 	int indice = 0;
-	printf("\n");	
-	while(indice < 10)
+	printf("\n");
+	while (indice < 10)
 	{
 		printf("  %d   ", tipos2[indice]);
 		indice += 1;
@@ -64,8 +52,7 @@ void IntercambiarTipos(int tipos[], int posicion1seleccionada, int posicion2sele
 	tipos[posicion1seleccionada] = a;
 	printf("posicion 1 nueva %.2f\n", a);
 	printf("posicion 2 nueva %.2f\n", b);
-}	
-
+}
 
 
 
